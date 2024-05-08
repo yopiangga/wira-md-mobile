@@ -67,7 +67,7 @@ export function HomePage() {
       </div>
 
       <div className="mt-5 px-4">
-        <div className="p-4 bg-primary-main text-white rounded-2xl">
+        <div className="p-4 bg-slate-200 rounded-2xl">
           <h4 className="text-lg font-bold">
             Statistical classification of stroke patients
           </h4>
@@ -183,7 +183,7 @@ const ChartComponent = ({ title, color, percent }) => {
   return (
     <div className="overflow-hidden" style={{ width: `${percent}%` }}>
       <h4 className="text-center font-bold text-lg" style={{ color: color }}>
-        {percent}%
+        {percent.toFixed(2)}%
       </h4>
       <div className="w-full py-2 mt-1" style={{ backgroundColor: color }}>
         <h4 className="text-white text-center text-xs">{title}</h4>
