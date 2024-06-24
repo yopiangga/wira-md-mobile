@@ -216,7 +216,7 @@ export function PatientDetailMedicalRecord() {
               }}
               className="py-2 px-5 bg-white border border-primary-main rounded-full f-p2-r text-primary-main"
             >
-              Edit
+              Diagnose
             </button>
           </div>
         </div>
@@ -247,7 +247,7 @@ export function PatientDetailMedicalRecord() {
         <ListLabel label="Doctor" value={formData?.doctor} />
         <ListLabel label="Hospital" value={formData?.hospital} />
         <ListLabel label="ID Patient" value={formData?.idPatient} />
-        <ListLabel label="NIK" value={formData?.nikPatient} />
+        {/* <ListLabel label="NIK" value={formData?.nikPatient} /> */}
         <ListLabel label="Patient" value={formData?.patient} />
         <ListLabel
           label="Time"
