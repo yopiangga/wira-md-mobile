@@ -14,6 +14,7 @@ import { InputTextarea } from "src/components/input/input-textarea";
 import { ButtonComponent, ButtonOutlineComponent } from "src/components/button";
 import normalImage from "src/assets/images/normal.jpg";
 import toast from "react-hot-toast";
+import { MapComponent } from "./component/map";
 
 export function PatientDetailMedicalRecord() {
   const navigate = useNavigate();
@@ -261,6 +262,10 @@ export function PatientDetailMedicalRecord() {
           })}
         />
         <ListLabel label="Note" value={formData.description} />
+      </div>
+
+      <div className="mt-6 w-11/12">
+        <MapComponent idPatient={formData.idPatient} />
       </div>
 
       <div className="mt-6 w-11/12">
