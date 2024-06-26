@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserLayout } from "src/layouts/user";
+import { DicomReaderPage } from "src/pages/dicom-reader";
 import { HomePage } from "src/pages/home";
 import { MedicalRecordPage } from "src/pages/medical-record";
 import { PatientDetailMedicalRecord } from "src/pages/patient-detail-medical-record";
@@ -22,6 +23,10 @@ export default function DoctorRouterPage() {
           <Route
             path="/medical-record/:id"
             element={<PatientDetailMedicalRecord />}
+          />
+          <Route
+            path="/medical-record/dicom/:id"
+            element={<DicomReaderPage />}
           />
           <Route path="/profile/me" element={<MyProfilePage />} />
           <Route path="/profile/me/edit" element={<EditProfilePage />} />

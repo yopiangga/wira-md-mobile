@@ -61,7 +61,12 @@ export function PatientDetailMedicalRecord() {
   const fetchData = async () => {
     const res = await medicalRecordServices.getMedicalRecordById({ id });
     if (res) {
-      setFormData(res.data);
+      const idDicom = res.data.image.split("/").pop().split(".")[0];
+
+      setFormData({
+        ...res.data,
+        idDicom,
+      });
 
       setSlides([
         <img src={res.data.image} className="w-full h-full" />,
@@ -223,8 +228,8 @@ export function PatientDetailMedicalRecord() {
         </div>
       </div>
 
-      <div className="mt-4 border-t border-b border-slate-200 w-full flex justify-center py-6">
-        <h4 className="f-p1-r w-11/12">
+      <div className="mt-4 border-t border-b border-slate-200 flex justify-between py-6 w-11/12 items-center">
+        <h4 className="f-p1-r">
           <a
             href={formData.image}
             download={
@@ -241,6 +246,14 @@ export function PatientDetailMedicalRecord() {
           </a>{" "}
           image CT Scan result
         </h4>
+        <button
+          className="py-2 px-5 bg-white border border-primary-main rounded-full f-p2-r text-primary-main"
+          onClick={() => {
+            navigate("/medical-record/dicom/" + formData.idDicom);
+          }}
+        >
+          View DICOM
+        </button>
       </div>
 
       <div className="mt-4 w-11/12 flex flex-col gap-4">

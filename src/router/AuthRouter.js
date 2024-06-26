@@ -10,7 +10,7 @@ export default function AuthRouterPage() {
         <Routes>
           <Route path="/" element={<SignInPage />} />
 
-          <Route path="*" element={<StartPage />} exact />
+          <Route path="*" element={<SignInPage />} exact />
         </Routes>
       </BrowserRouter>
     </UserLayout>
