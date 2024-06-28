@@ -63,6 +63,8 @@ export function PatientDetailMedicalRecord() {
     if (res) {
       const idDicom = res.data.image.split("/").pop().split(".")[0];
 
+      console.log(res.data);
+
       setFormData({
         ...res.data,
         idDicom,
@@ -277,8 +279,12 @@ export function PatientDetailMedicalRecord() {
         <ListLabel label="Note" value={formData.description} />
       </div>
 
-      <div className="mt-6 w-11/12">
+      {/* <div className="mt-6 w-11/12">
         <MapComponent idPatient={formData.idPatient} />
+      </div> */}
+
+      <div className="mt-6 w-11/12">
+        <NeighborsComponent neighbors={formData.neighbors} />
       </div>
 
       <div className="mt-6 w-11/12">
@@ -308,4 +314,41 @@ function ListLabel({ label, value }) {
       </div>
     </div>
   );
+}
+
+function NeighborsComponent({neighbors}){
+  return (
+    <div className="w-full">
+      <h4 className="f-h5">Neighbors</h4>
+      <div className="grid grid-cols-12 gap-4 mt-4">
+        {neighbors?.map((item, index) => {
+          if (index < 5) {
+            return <div key={index} className="col-span-12">
+            <div className="flex flex-col gap-2 p-4 border border-slate-200 rounded-lg">
+              <div className="flex justify-between items-center">
+                <h4 className="f-p1-r">Patient</h4>
+                <p className="f-p2-r text-slate-400">{item.id}</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="f-p2-r text-slate-400">Distance</p>
+                <p className="f-p1-r">{
+                  item.distance < 1 ? (item.distance * 1000).toFixed(2) + " m" : (item.distance).toFixed(2) + " km"
+                }
+              </p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="f-p2-r text-slate-400">Diagnosis By Doctor</p>
+                <p className="f-p1-r capitalize">{item.diagnoseByDoctor}</p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="f-p2-r text-slate-400">Diagnosis By AI</p>
+                <p className="f-p1-r capitalize">{item.diagnoseByAI}</p>
+              </div>
+            </div>
+          </div>
+          } 
+})}
+      </div>
+    </div>
+  )
 }
