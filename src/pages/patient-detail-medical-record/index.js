@@ -63,8 +63,6 @@ export function PatientDetailMedicalRecord() {
     if (res) {
       const idDicom = res.data.image.split("/").pop().split(".")[0];
 
-      console.log(res.data);
-
       setFormData({
         ...res.data,
         idDicom,
@@ -232,21 +230,7 @@ export function PatientDetailMedicalRecord() {
 
       <div className="mt-4 border-t border-b border-slate-200 flex justify-between py-6 w-11/12 items-center">
         <h4 className="f-p1-r">
-          <a
-            href={formData.image}
-            download={
-              formData.nikPatient +
-              "_" +
-              formData.patient +
-              "_" +
-              formData.id +
-              ".jpg"
-            }
-            className="text-primary-main"
-          >
-            Download
-          </a>{" "}
-          image CT Scan result
+          Show 3D image CT Scan result
         </h4>
         <button
           className="py-2 px-5 bg-white border border-primary-main rounded-full f-p2-r text-primary-main"
@@ -283,9 +267,9 @@ export function PatientDetailMedicalRecord() {
         <MapComponent idPatient={formData.idPatient} />
       </div> */}
 
-      <div className="mt-6 w-11/12">
+      {/* <div className="mt-6 w-11/12">
         <NeighborsComponent neighbors={formData.neighbors} />
-      </div>
+      </div> */}
 
       <div className="mt-6 w-11/12">
         <button
