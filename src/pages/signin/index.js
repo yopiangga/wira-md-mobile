@@ -37,7 +37,7 @@ export function SignInPage() {
         <div className="mt-20">
           {/*<img src={imageLogo} /> */}
           <h1 className="f-h1 ">
-            Wira<span className="text-primary-main">MD</span> Mobile
+            Prisma<span className="text-primary-main">LAB</span> Mobile
           </h1>
         </div>
         <div className="mt-4">
